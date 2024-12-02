@@ -19,7 +19,7 @@ accidentes <- accidentes2020_data |> as_tibble()
 
 ```
 
----
+------------------------------------------------------------------------
 
 ## Resumen
 
@@ -27,7 +27,7 @@ accidentes <- accidentes2020_data |> as_tibble()
 resumen <- accidentes |> count(sexo)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Visualizar
 
@@ -36,5 +36,5 @@ resumen <- accidentes |> count(sexo)
 
 ggplot(resumen) + 
   geom_col(aes(x=sexo, y= n, fill = sexo), alpha = 0.6) + 
-  ggthemes::theme_economist_white()
+  ggthemes::scale_fill_colorblind()
 ```
