@@ -38,3 +38,44 @@ ggplot(resumen) +
   geom_col(aes(x=sexo, y= n, fill = sexo), alpha = 0.6) + 
   theme_minimal()
 ```
+=======
+---
+title: "Ejemplo entrega"
+author: "Florencia Aiello Battan"
+format: 
+  revealjs:
+    embed-resources: true
+editor: visual
+execute: 
+  echo: true
+---
+
+## Carga de datos
+
+```{r}
+load("accidentes2020_data.rda")
+library(tidyverse)
+library(tibble)
+accidentes <- accidentes2020_data |> as_tibble()
+
+```
+
+------------------------------------------------------------------------
+
+## Resumen
+
+```{r}
+resumen <- accidentes |> count(sexo)
+```
+
+------------------------------------------------------------------------
+
+## Visualizar
+
+```{r}
+#| code-fold: true
+
+ggplot(resumen) + 
+  geom_col(aes(x=sexo, y= n, fill = sexo), alpha = 0.6) + 
+  ggthemes::scale_fill_colorblind()
+```
